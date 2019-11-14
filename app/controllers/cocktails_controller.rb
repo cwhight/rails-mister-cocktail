@@ -3,7 +3,8 @@ class CocktailsController < ApplicationController
   def index
     @cocktails = Cocktail.all
     if params[:query].present?
-      @cocktails = Cocktail.joins(:doses).joins(:ingredients).where(ingredients: {name: "#{params[:query]}"})
+      @cocktails = Cocktail.joins(:ingredients).where(ingredients: {name: "#{params[:query]}"})
+      # @cocktails = Cocktail.select { |cocktail| cocktail.ingredients }
     end
     @no_results = "No results" if @cocktails.empty?
   end
