@@ -1,9 +1,0 @@
-<%= simple_form_for [@cocktail, @dose], url: cocktail_doses_path(params[:cocktail_id]) do |f| %>
-  <%= f.association :ingredient %>
-  <%= f.input :description %>
-
-
-  <%= f.button :submit %>
-<% end %>
-
-<!-- url: cocktail_doses_path(params[:cocktail_id]) -->

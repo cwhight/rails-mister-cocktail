@@ -1,11 +1,15 @@
 class CocktailsController < ApplicationController
-  before_action :set_cocktail, only: [:show, :edit, :update, :delete]
-
+  before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
   def index
     @cocktails = Cocktail.all
+    if params[:query].present?
+      @cocktails = Cocktail.joins(:doses).joins(:ingredients).where(ingredients: {name: "#{params[:query]}"})
+    end
+    @no_results = "No results" if @cocktails.empty?
   end
 
   def show
+    @review = Review.new
     @dose = Dose.new
   end
 
@@ -22,8 +26,20 @@ class CocktailsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
-    @cocktail.doses << params[:dose]
+    @cocktail.update(cocktail_params)
+    if @cocktail.save
+      redirect_to cocktail_path(@cocktail)
+    else
+    end
+  end
+
+  def destroy
+    @cocktail.destroy
+    redirect_to cocktails_path
   end
 
   private
@@ -33,6 +49,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :description, :review, :review_score)
   end
 end
