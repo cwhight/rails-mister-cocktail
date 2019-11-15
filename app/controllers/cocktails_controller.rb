@@ -1,6 +1,7 @@
 class CocktailsController < ApplicationController
   before_action :set_cocktail, only: [:show, :edit, :update, :destroy]
   def index
+    @cocktail = Cocktail.new
     @cocktails = Cocktail.all
     if params[:query].present?
       @cocktails = Cocktail.joins(:ingredients).where(ingredients: {name: "#{params[:query]}"})
