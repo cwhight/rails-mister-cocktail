@@ -4,36 +4,10 @@
   <div class="container">
     <h1>Cocktails are great</strong>!</h1>
     <p>Change your life and learn to make cocktails.</p>
-     <button type="button" class="btn btn-flat" data-toggle="modal" data-target="#exampleModalCenter">
-    Create New Cocktail
-  </button>
+
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Your New Cocktail</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-              <%= simple_form_for @cocktail do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description, as: :text %>
-      <%= f.input :photo, as: :file, class: "btn btn-ghost"%>
-      <%= f.button :submit, "Create Cocktail", class: "btn btn-flat" %>
-    <%=  %>
-    <% end %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-ghost" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-flat">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+    <%= render 'shared/modal_form', open_modal: "Create a New Cocktail", modal_title: "Your New Cocktail!", button_text: "Create Cocktail" %>
   </div>
 </div>
 

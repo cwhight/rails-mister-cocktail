@@ -3,22 +3,12 @@
   <div class="container">
     <h1><%= @cocktail.name %></h1>
       <p><%= @cocktail.description %></p>
-      <p id="edit" class="btn btn-flat">Edit</p>
+      <%= render 'shared/modal_form', open_modal: "Edit This Cocktail", modal_title: "Edit Your Cocktail!", button_text: "Save Changes" %>
   </div>
 </div>
 
 
 <div class="container mt-3">
-  <div id="edit-form" class="hidden">
-      <%= simple_form_for [@cocktail], url: cocktail_path(@cocktail), method: :patch do |f| %>
-      <%= f.input :name %>
-      <%= f.input :description, as: :text %>
-      <%= f.input :photo, as: :file %>
-      <%= f.button :submit, "Edit Cocktail", class: "btn btn-flat" %>
-    <%=  %>
-    <% end %>
-
-  </div>
   <div class="row">
     <div class="col-12 col-md-8 my-2">
       <div class="card shadow-sm p-2 rounded">
