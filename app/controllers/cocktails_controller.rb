@@ -24,7 +24,7 @@ class CocktailsController < ApplicationController
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
     else
-      render :new
+      redirect_to root_path, notice: 'There was an error'
     end
   end
 

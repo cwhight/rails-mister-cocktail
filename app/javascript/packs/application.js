@@ -22,6 +22,5 @@ console.log('Hello World from Webpacker')
 import { initUpdateNavbarOnScroll } from '../components/navbar';
 initUpdateNavbarOnScroll();
 
-import { editForm } from '../components/openEdit.js'
-import { reviewForm } from '../components/openReview.js'
+
 

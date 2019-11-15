@@ -1,6 +1,6 @@
 <%= render 'shared/navbar' %>
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/cwhight/image/upload/v1573819641/assorted-wine-bottles-1283219_jg25dt.jpg);">
+<div class="banner" id="home-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/cwhight/image/upload/v1573819641/assorted-wine-bottles-1283219_jg25dt.jpg);">
   <div class="container">
     <h1>Cocktails are great</strong>!</h1>
     <p>Change your life and learn to make cocktails.</p>
@@ -29,7 +29,7 @@
     <% @cocktails.each do |c| %>
       <div class="col-12 col-md-6">
 
-        <div data-aos="fade-up" class="card-product">
+        <div class="card-product">
           <% if c.photo.attached? %>
             <%= cl_image_tag c.photo.key %>
            <% else %>

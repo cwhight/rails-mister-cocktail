@@ -39,7 +39,8 @@
   </div>
 
       <div class="card p-2 shadow-sm mt-3">
-        <h2>Reviews</h2>
+
+        <h2>Reviews </h2>
         <% @cocktail.reviews.each do |r| %>
           <div class="border-bottom mb-3">
             <span class="mb-3"><% r.score.times do %><i class="star fas fa-star"></i><% end %></span>
@@ -50,19 +51,14 @@
       </div>
 
   <br>
-  <div id="review-form" class="hidden mb-3">
-    <%= simple_form_for [@cocktail, @review], url: cocktail_reviews_path(@cocktail) do |f| %>
-      <%= f.input :content, as: :text %>
-      <%= f.input :score, collection: 0..5 %>
-
-
-      <%= f.button :submit, "Create Review", class: 'btn btn-ghost' %>
-    <% end %>
-  </div>
 
 <div class="d-flex justify-content-between">
 
-  <p id="review" class="btn btn-ghost">Add a Review</p>
+
+
+<!--   <p id="review" class="btn btn-ghost">Add a Review</p> -->
+
+  <%= render 'shared/modal_review' %>
 
   <p><%= link_to 'Delete this cocktail', cocktail_path(@cocktail), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-ghost"  %></p>
 </div>
