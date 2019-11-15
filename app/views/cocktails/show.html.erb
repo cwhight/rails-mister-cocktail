@@ -13,6 +13,7 @@
       <%= simple_form_for [@cocktail], url: cocktail_path(@cocktail), method: :patch do |f| %>
       <%= f.input :name %>
       <%= f.input :description, as: :text %>
+      <%= f.input :photo, as: :file %>
       <%= f.button :submit, "Edit Cocktail", class: "btn btn-flat" %>
     <%=  %>
     <% end %>
@@ -31,13 +32,15 @@
     </div>
 
   <div class="mt-2 col-12 col-md-4">
-    <%= simple_form_for [@cocktail, @dose], url: cocktail_doses_path(@cocktail) do |f| %>
-      <%= f.association :ingredient %>
-      <%= f.input :description %>
+    <div class="card p-2">
+      <%= simple_form_for [@cocktail, @dose], url: cocktail_doses_path(@cocktail) do |f| %>
+        <%= f.association :ingredient %>
+        <%= f.input :description %>
 
 
-      <%= f.button :submit, "Add Ingredient", class: 'btn btn-ghost' %>
-    <% end %>
+        <%= f.button :submit, "Add Ingredient", class: 'btn btn-ghost' %>
+      <% end %>
+    </div>
   </div>
 
   </div>
