@@ -1,5 +1,5 @@
 <%= render 'shared/navbar' %>
-<div class="banner" position="relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+<div class="banner" position="relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://res.cloudinary.com/cwhight/image/upload/v1573819641/assorted-wine-bottles-1283219_jg25dt.jpg);">
 
 </div>
 
@@ -10,6 +10,7 @@
     <%= simple_form_for @cocktail do |f| %>
       <%= f.input :name %>
       <%= f.input :description, as: :text %>
+      <%= f.input :photo, as: :file, class: "btn btn-ghost"%>
       <%= f.button :submit, "Create Cocktail", class: "btn btn-flat" %>
     <%=  %>
     <% end %>
