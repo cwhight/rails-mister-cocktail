@@ -38,19 +38,21 @@
 
   </div>
 
-      <div class="card p-2 shadow-sm mt-3">
         <% sum = 0 %>
         <% @cocktail.reviews.each{ |r| sum += r.score } %>
-        <% score = sum / @cocktail.reviews.length %>
-        <h3>Reviews <span ><% score.times do %><i class="star fas fa-star"></i><% end %></h3>
-        <% @cocktail.reviews.each do |r| %>
-          <div class="border-bottom mb-3">
-            <span class="mb-3"><% r.score.times do %><i class="star fas fa-star"></i><% end %></span>
-            <p><%= r.content %></p>
+        <% if @cocktail.reviews.length > 0 %>
+          <div class="card p-2 shadow-sm mt-3">
+            <% score = sum / @cocktail.reviews.length %>
+            <h3>Reviews <span ><% score.times do %><i class="star fas fa-star"></i><% end %></h3>
+            <% @cocktail.reviews.each do |r| %>
+              <div class="border-bottom mb-3">
+                <span class="mb-3"><% r.score.times do %><i class="star fas fa-star"></i><% end %></span>
+                <p><%= r.content %></p>
 
+              </div>
+            <% end %>
           </div>
         <% end %>
-      </div>
 
   <br>
 
