@@ -16,10 +16,13 @@
   background-color: white;
   opacity: 0.7;
 }
-
-#nav-text {
-  color: white;
+.nav-text {
+  color: white !important;
 }
+
+// .nav-text-dark {
+//   color: black !important;
+// }
 
 .rounded {
   border-radius: 50%;
