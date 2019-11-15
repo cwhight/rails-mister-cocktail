@@ -5,7 +5,9 @@ class CocktailsController < ApplicationController
     @cocktails = Cocktail.all
     if params[:query].present?
       @cocktails = Cocktail.joins(:ingredients).where("ingredients.name LIKE '%#{params[:query]}%' or ingredients.name LIKE '%#{params[:query].capitalize}%'")
-      # @cocktails = Cocktail.select { |cocktail| cocktail.ingredients }
+      if @cocktails.empty?
+        @cocktails = Cocktail.where("cocktails.name LIKE '%#{params[:query].capitalize}%' or cocktails.name LIKE '%#{params[:query]}%'")
+      end
     end
     @no_results = "No results" if @cocktails.empty?
   end
